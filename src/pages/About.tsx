@@ -1,5 +1,6 @@
 import { usePageInteractions } from '../hooks/usePageInteractions';
 import { useState, useEffect, useRef, type FC, type ReactNode } from "react";
+import Footer from '../components/footer';
 
 interface ScrollFadeUpProps {
   children: ReactNode;
@@ -252,52 +253,7 @@ export default function About() {
             );
           })}
         </div>
-        <div className="w-full flex justify-between relative">
-          <div className="flex gap-3 md:gap-8 items-center justify-center pt-4 md:pt-8">
-            <div className="pl-4 text-2xl md:text-5xl text-purple-400 font-bebas">
-              EXPATIME <br />
-              <span className="text-blue-400">2025</span>
-            </div>
-
-            <div className="h-full w-[1px] bg-gray-600"></div>
-
-            <div className="flex flex-col gap-1 md:gap-2 items-center justify-center">
-              <p className="text-white/70 font-azeret text-xs md:text-base text-left">
-                MARS Project <br />
-                Politeknik Negeri Jakarta <br />
-              </p>
-              <div className="flex gap-1 md:gap-2 justify-start w-full">
-                <a
-                  href="https://www.instagram.com/marsproject_pnj/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer"
-                >
-                  <img
-                    src="/images/instagram.svg"
-                    alt="Instagram"
-                    className="w-5 h-5 md:w-8 md:h-8"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="md:absolute block right-0 pr-4 ">
-            <div className="w-32 h-32 rounded-full flex items-center justify-center overflow-hidden">
-              <img
-                src="logo.jpg"
-                alt="logo"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-center items-center w-full font-azeret text-black/70">
-          <p className="pb-2 text-xs text-white/70 md:text-base">
-            Copyright @ 2025 ExpaTime. All Right Reserved
-          </p>
-        </div>
+        <Footer />
       </div>
     </>
   );
