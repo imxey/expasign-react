@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import CompetitionSelector from '../components/compeSelector';
-import Nav from '../components/navbar';
 import { usePageInteractions } from '../hooks/usePageInteractions';
 
 interface Member {
