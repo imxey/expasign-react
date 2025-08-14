@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <div className="w-full bg-gray-900 flex items-center pt-4 md:pt-8">
+      <div className="w-full bg-gray-900 flex flex-col md:flex-row items-center pt-4 md:pt-8">
         <div className="flex items-center justify-start">
           <div className="w-32 h-32">
             <img
@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="ml-auto px-6">
+        <div className="md:ml-auto md:mt-0 px-6">
           <div className="flex gap-1 md:gap-2 justify-start w-full">
             <a href="https://wa.me/6283899375997" target='blank' className="text-gray-400 transition-colors duration-300 hover:text-cyan-400">
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex justify-start items-center w-full font-azeret text-black/70 bg-gray-900 px-6">
+      <div className="flex md:justify-start justify-center items-center w-full font-azeret text-black/70 bg-gray-900 px-6">
         <p className="pb-2 text-xs text-white/70 md:text-base">
           Copyright © {new Date().getFullYear()} ExpaTime. All Right Reserved
         </p>
