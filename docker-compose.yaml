@@ -1,0 +1,22 @@
+services:
+
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: always
+    command: tunnel --no-autoupdate --url http://localhost:5173 run --token eyJhIjoiODdhOGY4ZDdiODRjZjYwNzljMTMyZDk0YWZmMDhjOWEiLCJ0IjoiMjhiMDAxMGEtYTU3NS00MGQ4LTk4ZWQtODM0NTdhOGEyZGQ1IiwicyI6IllqVTNOelF4TldNdFlXRXlPQzAwWTJOakxUbGxaREF0T0Rsak1EVTROVEZrTkRVMyJ9
+    network_mode: host
+
+
+
+
+
+
+
+
+
+
+
+
+
+
