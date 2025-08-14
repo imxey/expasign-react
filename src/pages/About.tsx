@@ -1,7 +1,6 @@
 import { usePageInteractions } from '../hooks/usePageInteractions';
 import { useState, useEffect, useRef, type FC, type ReactNode } from "react";
 import Footer from '../components/footer';
-
 interface ScrollFadeUpProps {
   children: ReactNode;
 }
@@ -90,7 +89,7 @@ export default function About() {
   return (
     <>
       <div
-        className="flex min-h-screen flex-col items-center justify-start bg-gray-900 text-white pt-[30px]"
+        className="flex min-h-screen flex-col items-center justify-start !bg-gray-900 text-white pt-[30px]"
         style={{
           fontFamily: 'Orbitron',
           fontWeight: 400,
@@ -212,7 +211,7 @@ export default function About() {
           Authors
         </h2>
 
-        <div className="flex flex-col xl:flex-row justify-center items-stretch gap-4 w-full max-w-7xl px-4 xl:px-32 my-12">
+        <div className="flex flex-col xl:flex-row justify-center items-stretch gap-4 w-full max-w-7xl px-4 xl:px-32">
           {infoCards.map(({ title, caption, photoUrl }, i) => {
             const isActive = activeIndex === i;
 
@@ -226,7 +225,7 @@ export default function About() {
                   text-black
                   lg:text-white
                   transition-all duration-500 ease-in-out
-                  bg-${isActive ? 'gray-400' : 'black'}
+                  bg-${isActive ? 'gray-400' : 'transparent'}
                   ${isActive ? 'flex-grow' : 'flex-grow-0'}
                   `}
                 style={{
