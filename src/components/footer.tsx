@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex md:justify-start justify-center items-center w-full font-azeret text-black/70 bg-gray-900 px-6">
+      <div className="flex md:justify-start justify-center items-center text-center w-full font-azeret text-black/70 bg-gray-900 px-6">
         <p className="pb-2 text-xs text-white/70 md:text-base">
           Copyright © {new Date().getFullYear()} ExpaTime. All Right Reserved
         </p>

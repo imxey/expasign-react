@@ -5,10 +5,18 @@ import About from "./pages/About";
 import Edutime from "./pages/Edutime";
 import Regist from "./pages/Regist";
 import Submission from "./pages/Submission";
+import Competition from "./pages/Competition";
 
 function App() {
   return (
-    <div>
+    <div
+      style={{
+          fontFamily: 'Orbitron',
+          fontWeight: 400,
+          background:
+            'linear-gradient(90deg, rgba(30, 58, 138, 0.20) 0%, rgba(0, 0, 0, 0.50) 100%)',
+        }}
+    >
       <Navbar />
 
       <main>
@@ -18,6 +26,7 @@ function App() {
           <Route path="/edutime" element={<Edutime />} />
           <Route path="/register" element={<Regist />} />
           <Route path="/submission" element={<Submission />} />
+          <Route path="/competition" element={<Competition />} />
         </Routes>
       </main>
     </div>

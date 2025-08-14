@@ -20,8 +20,8 @@ export default function Navbar() {
                         About
                     </Link>
                     {/* KHUSUS UNTUK INI, karena ini nge-link ke bagian di halaman yg sama, mending pake <a> biasa aja */}
-                    <a href="#competitions" className="text-gray-300 transition-colors duration-300 hover:text-white">
-                        Competitions
+                    <a href="/competition" className="text-gray-300 transition-colors duration-300 hover:text-white">
+                        Competition
                     </a>
                     <Link to="/edutime" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         Edutime
