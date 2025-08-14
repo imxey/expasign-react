@@ -14,7 +14,7 @@ export default function Home() {
     const compData = [
         {
             name: 'KTI',
-            detail: 'Ubah ide brilianmu menjadi karya tulis ilmiahhh yang membahas isu pendidikan, ekonomi, teknologi, atau lingkungan dengan solusi yang nyata dan berdampak.',
+            detail: 'Ubah ide brilianmu menjadi karya tulis ilmiah yang membahas isu pendidikan, ekonomi, teknologi, atau lingkungan dengan solusi yang nyata dan berdampak.',
         },
         {
             name: 'Business Plan',
