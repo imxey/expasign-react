@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CompetitionSelector from '../components/compeSelector';
 import { useLocation } from 'react-router-dom';
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
 interface Member {
     id: number;
     name: string;
@@ -89,7 +86,6 @@ export default function Regist() {
         },
     ]);
 
-    const query = useQuery();
     const [selectedCompe, setSelectedCompe] = useState<string>('');
     const [errors, setErrors] = useState<any>({});
     const [successMessage, setSuccessMessage] = useState<string>('');
