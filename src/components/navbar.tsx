@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+export default function Navbar({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenuOpen: (isOpen: boolean) => void; }) {
     return (
         <nav className="relative z-50 bg-gray-900 px-6 py-4 shadow-lg">
             <div className="mx-auto flex max-w-7xl items-center justify-between">
@@ -8,7 +8,7 @@ export default function Navbar() {
                     <h1 className="text-xl font-bold text-white">Expasign x Edutime</h1>
                 </Link>
 
-                <button id="burger" className="text-white focus:outline-none md:hidden">
+                <button id="burger" className="text-white focus:outline-none md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -18,8 +18,7 @@ export default function Navbar() {
                     <Link to="/about" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         About
                     </Link>
-                    {/* KHUSUS UNTUK INI, karena ini nge-link ke bagian di halaman yg sama, mending pake <a> biasa aja */}
-                    <a href="/competition" className="text-gray-300 transition-colors duration-300 hover:text-white">
+                    <a href="#competition" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         Competition
                     </a>
                     <Link to="/edutime" className="text-gray-300 transition-colors duration-300 hover:text-white">
@@ -36,18 +35,18 @@ export default function Navbar() {
                 </div>
             </div>
 
-            <div id="nav-links" className="mt-4 flex hidden flex-col space-y-4 px-6 md:hidden">
-                <Link to="/about" className="block text-gray-300 transition-colors duration-300 hover:text-white">
+            <div id="nav-links" className={`mt-4 flex flex-col space-y-4 px-6 md:hidden ${isMenuOpen ? '' : 'hidden'}`}>
+                <Link to="/about" onClick={() => setIsMenuOpen(false)} className="block text-gray-300 transition-colors duration-300 hover:text-white">
                     About
                 </Link>
-                <a href="#competitions" className="block text-gray-300 transition-colors duration-300 hover:text-white">
+                <a href="#competition" onClick={() => setIsMenuOpen(false)} className="block text-gray-300 transition-colors duration-300 hover:text-white">
                     Competitions
                 </a>
-                <Link to="/edutime" className="block text-gray-300 transition-colors duration-300 hover:text-white">
+                <Link to="/edutime" onClick={() => setIsMenuOpen(false)} className="block text-gray-300 transition-colors duration-300 hover:text-white">
                     Edutime
                 </Link>
                 <Link to="/register">
-                    <button className="w-full transform rounded-full bg-cyan-500 px-6 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-cyan-600">
+                    <button onClick={() => setIsMenuOpen(false)} className="w-full transform rounded-full bg-cyan-500 px-6 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-cyan-600">
                         Register
                     </button>
                 </Link>

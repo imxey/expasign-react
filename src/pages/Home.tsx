@@ -86,7 +86,7 @@ export default function Home() {
       </section>
       <section className="bg-gray-800 px-6 py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div id='competition' className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {compData.map((comp, index) => (
               <div key={index} className="relative w-full h-90 rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700 p-6 rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl">
                 <h1 className="text-2xl font-bold text-blue-400">{comp.title}</h1>

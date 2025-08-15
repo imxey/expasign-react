@@ -5,16 +5,11 @@ import About from "./pages/About";
 import Edutime from "./pages/Edutime";
 import Regist from "./pages/Regist";
 import Submission from "./pages/Submission";
-import {usePageInteractions} from "./hooks/usePageInteractions";
 import Competition from "./pages/Competition";
+import { useState } from "react";
 
 function App() {
-  usePageInteractions({
-    parallaxSelector: '.absolute.inset-0',
-    parallaxSpeed: 0.5,
-    burgerId: 'burger',
-    navLinksId: 'nav-links',
-  });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div
       style={{
@@ -24,7 +19,7 @@ function App() {
             'linear-gradient(90deg, rgba(30, 58, 138, 0.20) 0%, rgba(0, 0, 0, 0.50) 100%)',
         }}
     >
-      <Navbar />
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
 
       <main>
         <Routes>
