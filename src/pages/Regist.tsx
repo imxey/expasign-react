@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import CompetitionSelector from '../components/compeSelector';
 import { usePageInteractions } from '../hooks/usePageInteractions';
+import { useLocation } from 'react-router-dom';
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 interface Member {
     id: number;
     name: string;
@@ -92,11 +96,20 @@ export default function Regist() {
         },
     ]);
 
+    const query = useQuery();
     const [selectedCompe, setSelectedCompe] = useState<string>('');
     const [errors, setErrors] = useState<any>({});
     const [successMessage, setSuccessMessage] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
+    useEffect(() => {
+        const compeFromUrl = query.get('competition'); // e.g., ?competition=math
+        if (compeFromUrl) {
+        setSelectedCompe(compeFromUrl);
+        setTeamData((prev) => ({ ...prev, category: compeFromUrl }));
+        }
+    }, [query]);
+    
     useEffect(() => {
         if (selectedCompe) {
             setTeamData((prev) => ({ ...prev, category: selectedCompe }));

@@ -1,4 +1,3 @@
-import CompeHome from '../components/compe-home';
 import { usePageInteractions } from '../hooks/usePageInteractions';
 import { Link } from 'react-router-dom';
 import Footer from '../components/footer';
@@ -29,7 +28,7 @@ export default function Home() {
         "Inovasi Hijau dan Partisipasi Generasi Muda dalam Menanggulangi Krisis Iklim dan Degradasi Lingkungan"
       ],
       guidebook: "#",
-      register: "#"
+      register: "/register?competition=lkti"
     },
     {
       name: "Business Plan",
@@ -44,7 +43,7 @@ export default function Home() {
         "Green Business: Inovasi Mahasiswa dalam Menciptakan Usaha Berbasis Keberlanjutan dan Eco-Friendly"
       ],
       guidebook: "#",
-      register: "#"
+      register: "/register?competition=business_plan"
     },
     {
       name: "Infografis",
@@ -59,22 +58,21 @@ export default function Home() {
         "Krisis Iklim dan Aksi Nyata Mahasiswa untuk Bumi yang Lebih Hijau"
       ],
       guidebook: "#",
-      register: "#"
+      register: "/register?competition=Infografis"
     }
   ];
 
   return (
     <div className="bg-gray-900 text-white" style={{ fontFamily: 'Orbitron, monospace', fontWeight: 400 }}>
-      {/* Hero Section */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(90deg, rgba(30, 58, 138, 0.20) 0%, rgba(0, 0, 0, 0.50) 100%)' }}
         ></div>
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h1 className="font-white mb-5 flex flex-col text-3xl md:text-6xl">
+          <h1 className="font-white mb-5 flex flex-col text-3xl md:text-6xl" style={{ fontFamily: 'Orbitron, monospace', fontWeight: 400 }}>
             Expasign<span>x</span>
-            <span>Edutime</span> <span className="text-blue-400">2025</span>
+            <span>Edutime</span> <span className="text-blue-400" style={{ fontFamily: 'Orbitron, monospace', fontWeight: 500 }}>2025</span>
           </h1>
           <p className="mx-auto mb-5 max-w-5xl text-xs leading-relaxed text-gray-300 md:text-xl">
             Expasign dan Edutime adalah program unggulan dari UKM Mars Project PNJ yang bertujuan meningkatkan kreativitas, inovasi, dan potensi mahasiswa...
@@ -86,8 +84,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-      {/* Competition Section */}
       <section className="bg-gray-800 px-6 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -96,8 +92,6 @@ export default function Home() {
                 <h1 className="text-2xl font-bold text-blue-400">{comp.title}</h1>
                 <p className="mt-2 text-gray-300">{comp.desc}</p>
                 <p className="mt-2 text-gray-400">{comp.detail}</p>
-
-                {/* See Detail Button with clip-path animation */}
                 <button
                   onClick={() => setActiveModal(index)}
                   type="button"
@@ -115,8 +109,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-        {/* Popup Modal */}
         {activeModal !== null && (
           <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
             <div className="bg-gray-800 text-white rounded-lg p-6 max-w-lg w-full relative border border-gray-700 shadow-xl animate-fade-up">
@@ -138,7 +130,6 @@ export default function Home() {
           </div>
         )}
       </section>
-
       <Footer />
     </div>
   );

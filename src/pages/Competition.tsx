@@ -1,4 +1,3 @@
-import CompeHome from '../components/compe-home';
 import { usePageInteractions } from '../hooks/usePageInteractions';
 import Footer from '../components/footer';
 import { useState } from 'react';
@@ -66,7 +65,6 @@ export default function Home() {
             <span className="text-purple-400"> 3 kategori:</span> Karya Tulis Ilmiah (KTI), Business Plan, Infografis.
           </p>
 
-          {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {compData.map((item, idx) => (
               <div key={idx} className="relative w-full h-80 rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700">
@@ -75,7 +73,6 @@ export default function Home() {
                   <p className="mt-3 text-gray-300">{item.desc}</p>
                 </div>
 
-                {/* See Detail Button */}
                 <button
                   onClick={() => setActiveModal(idx)}
                   className="relative group cursor-pointer rounded-md border-2 border-red-500 w-full py-2 text-center bg-red-500 text-white text-lg overflow-hidden"
@@ -94,7 +91,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Popup Modal */}
       {activeModal !== null && (
         <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
           <div className="bg-gray-800 text-white rounded-lg p-6 max-w-lg w-full relative border border-gray-700 shadow-xl">
