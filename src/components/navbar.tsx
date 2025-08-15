@@ -4,7 +4,6 @@ export default function Navbar() {
     return (
         <nav className="relative z-50 bg-gray-900 px-6 py-4 shadow-lg">
             <div className="mx-auto flex max-w-7xl items-center justify-between">
-                {/* Pake 'to', bukan 'href' */}
                 <Link to="/" >
                     <h1 className="text-xl font-bold text-white">Expasign x Edutime</h1>
                 </Link>
@@ -37,7 +36,6 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Ini juga diganti semua yaa */}
             <div id="nav-links" className="mt-4 flex hidden flex-col space-y-4 px-6 md:hidden">
                 <Link to="/about" className="block text-gray-300 transition-colors duration-300 hover:text-white">
                     About

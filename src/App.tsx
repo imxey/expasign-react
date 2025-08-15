@@ -5,9 +5,16 @@ import About from "./pages/About";
 import Edutime from "./pages/Edutime";
 import Regist from "./pages/Regist";
 import Submission from "./pages/Submission";
+import {usePageInteractions} from "./hooks/usePageInteractions";
 import Competition from "./pages/Competition";
 
 function App() {
+  usePageInteractions({
+    parallaxSelector: '.absolute.inset-0',
+    parallaxSpeed: 0.5,
+    burgerId: 'burger',
+    navLinksId: 'nav-links',
+  });
   return (
     <div
       style={{

@@ -1,17 +1,8 @@
-import { usePageInteractions } from '../hooks/usePageInteractions';
 import { Link } from 'react-router-dom';
 import Footer from '../components/footer';
 import { useState } from 'react';
 
 export default function Home() {
-  usePageInteractions({
-    smoothScroll: true,
-    parallaxSelector: ".absolute.inset-0",
-    parallaxSpeed: 0.5,
-    burgerId: "burger",
-    navLinksId: "nav-links",
-  });
-
   const [activeModal, setActiveModal] = useState<number | null>(null);
 
   const compData = [
@@ -132,8 +123,8 @@ export default function Home() {
               </ul>
 
               <div className="flex gap-4 mb-4"> 
-                <a href={compData[activeModal].guidebook} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guidebook</a>
-                <a href={compData[activeModal].register} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Register</a>
+                <Link to={compData[activeModal].guidebook} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guidebook</Link>
+                <Link to={compData[activeModal].register} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Register</Link>
               </div>
             </div>
           </div>

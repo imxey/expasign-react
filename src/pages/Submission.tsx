@@ -1,19 +1,10 @@
 import { useState } from 'react';
 import type { FC, MouseEvent, ChangeEvent } from 'react';
-import { usePageInteractions } from '../hooks/usePageInteractions';
 
 interface FormDataState {
     name: string;
     email: string;
     file: File | undefined;
-}
-
-interface PageInteractionsProps {
-    smoothScroll: boolean;
-    parallaxSelector: string;
-    parallaxSpeed: number;
-    burgerId: string;
-    navLinksId: string;
 }
 
 interface SuccessResponse {
@@ -27,13 +18,7 @@ interface ErrorResponse {
 }
 
 const Submission: FC = () => {
-    usePageInteractions({
-        smoothScroll: true,
-        parallaxSelector: ".absolute.inset-0",
-        parallaxSpeed: 0.5,
-        burgerId: "burger",
-        navLinksId: "nav-links",
-    } as PageInteractionsProps);
+    
 
     const [formData, setFormData] = useState<FormDataState>({
         name: '',

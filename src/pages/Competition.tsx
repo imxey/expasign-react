@@ -1,16 +1,7 @@
-import { usePageInteractions } from '../hooks/usePageInteractions';
 import Footer from '../components/footer';
 import { useState } from 'react';
 
 export default function Home() {
-  usePageInteractions({
-    smoothScroll: true,
-    parallaxSelector: ".absolute.inset-0",
-    parallaxSpeed: 0.5,
-    burgerId: "burger",
-    navLinksId: "nav-links",
-  });
-
   const [activeModal, setActiveModal] = useState<number | null>(null);
 
   const compData = [

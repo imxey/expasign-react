@@ -1,4 +1,3 @@
-import { usePageInteractions } from '../hooks/usePageInteractions';
 import { useState, useEffect, useRef, type FC, type ReactNode } from "react";
 import Footer from '../components/footer';
 interface ScrollFadeUpProps {
@@ -54,14 +53,6 @@ interface InfoCard {
 }
 
 export default function About() {
-  usePageInteractions({
-    smoothScroll: true,
-    parallaxSelector: ".absolute.inset-0",
-    parallaxSpeed: 0.5,
-    burgerId: "burger",
-    navLinksId: "nav-links",
-  });
-
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const infoCards: InfoCard[] = [

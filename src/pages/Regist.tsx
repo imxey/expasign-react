@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CompetitionSelector from '../components/compeSelector';
-import { usePageInteractions } from '../hooks/usePageInteractions';
 import { useLocation } from 'react-router-dom';
-
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -65,13 +63,8 @@ const translateErrorMessage = (message: string, field: string): string => {
 };
 
 export default function Regist() {
-    usePageInteractions({
-        smoothScroll: true,
-        parallaxSelector: '.absolute.inset-0',
-        parallaxSpeed: 0.5,
-        burgerId: 'burger',
-        navLinksId: 'nav-links',
-    });
+    const location = useLocation();
+
     const [teamData, setTeamData] = useState<TeamData>({
         team_name: '',
         category: '',
@@ -103,12 +96,13 @@ export default function Regist() {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        const compeFromUrl = query.get('competition'); // e.g., ?competition=math
-        if (compeFromUrl) {
+    const searchParams = new URLSearchParams(location.search);
+    const compeFromUrl = searchParams.get('competition');
+    if (compeFromUrl) {
         setSelectedCompe(compeFromUrl);
         setTeamData((prev) => ({ ...prev, category: compeFromUrl }));
-        }
-    }, [query]);
+    }
+}, [location.search]);
     
     useEffect(() => {
         if (selectedCompe) {

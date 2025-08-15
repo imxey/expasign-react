@@ -1,5 +1,4 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
-import { usePageInteractions } from '../hooks/usePageInteractions';
 
 // Aku buatin interface buat data form-nya biar rapi
 interface IFormData {
@@ -13,18 +12,9 @@ interface IFormData {
 }
 
 export default function Edutime() {
-    usePageInteractions({
-        smoothScroll: true,
-        parallaxSelector: ".absolute.inset-0",
-        parallaxSpeed: 0.5,
-        burgerId: "burger",
-        navLinksId: "nav-links",
-    });
-
-    // State-nya kita kasih tipe data yang jelas yaa
     const [formData, setFormData] = useState<IFormData>({
         name: '',
-        nim: '', // Awalnya string kosong
+        nim: '', 
         jurusan: '',
         email: '',
         phone: '',
