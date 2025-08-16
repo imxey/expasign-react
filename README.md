@@ -15,14 +15,14 @@ Meanwhile, admins have full control over data management, participant monitoring
 
 <table>
   <tr>
-    <td><img src="public/images/1.png" alt="Home"/></td>
-    <td><img src="public/images/2.png" alt="Pendaftaran Seminar Edutime"/></td>
-    <td><img src="public/images/5.png" alt="Admin Page"/></td>
+    <td><img src="public/1.png" alt="Home"/></td>
+    <td><img src="public/2.png" alt="Pendaftaran Seminar Edutime"/></td>
+    <td><img src="public/5.png" alt="Admin Page"/></td>
 
   </tr>
   <tr>
-    <td><img src="public/images/3.png" alt="Pendaftaran Expasign"/></td>
-    <td><img src="public/images/4.png" alt="Pembayaran Otomatis Menggunakan Webhook Saweria"/></td>
+    <td><img src="public/3.png" alt="Pendaftaran Expasign"/></td>
+    <td><img src="public/4.png" alt="Pembayaran Otomatis Menggunakan Webhook Saweria"/></td>
   </tr>
 </table>
 
