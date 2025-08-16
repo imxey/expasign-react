@@ -1,69 +1,47 @@
-# React + TypeScript + Vite
+# Competition & Seminar Management Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <img src="public/logo.jpg" width="100" alt="Logo CafeX"/>
+</div>
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a web-based application designed to manage **seminars and competitions** with ease, built for events **Expasign x Edutime** Event.  
 
-## Expanding the ESLint configuration
+Users can register for events, upload payment proof, and submit project.
+Meanwhile, admins have full control over data management, participant monitoring, and payment confirmations using a dedicated dashboard.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Screenshot
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<table>
+  <tr>
+    <td><img src="public/images/1.png" alt="Home"/></td>
+    <td><img src="public/images/2.png" alt="Pendaftaran Seminar Edutime"/></td>
+    <td><img src="public/images/5.png" alt="Admin Page"/></td>
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+  </tr>
+  <tr>
+    <td><img src="public/images/3.png" alt="Pendaftaran Expasign"/></td>
+    <td><img src="public/images/4.png" alt="Pembayaran Otomatis Menggunakan Webhook Saweria"/></td>
+  </tr>
+</table>
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ✅ Register for competitions and seminars
+- ✅ Competition project submission
+- ✅ Automatic payment confirmation via Saweria Webhook
+- ✅ Manual payment confirmation via admin dashboard
+- ✅ Admin dashboard to monitor all registrations
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Architecture
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Laravel
+- React
+- FrankenPHP
+- Tailwind CSS
+- MySQL
+
+## Website :
+
+https://expasign-edutime.site/
