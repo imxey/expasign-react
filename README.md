@@ -37,8 +37,8 @@ Meanwhile, admins have full control over data management, participant monitoring
 
 ## Architecture
 
-- Laravel
-- React
+- Laravel for backend api
+- ReactJs (vite)
 - FrankenPHP
 - Tailwind CSS
 - MySQL
