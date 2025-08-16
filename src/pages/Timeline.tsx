@@ -20,7 +20,7 @@ const Timeline = () => {
     { title: "Pengumpulan Power Point (LKTI & LBP)", date: "17-19 September 2025" },
     { title: "Presentasi Finalis LKTI & LBP", date: "20 September 2025" },
     { title: "Pengumuman Pemenang", date: "23 September 2025" },
-    { title: "Awarding", date: "23 September 2025" },
+    { title: "Awarding Pemenang", date: "23 September 2025" },
   ];
 
   const TimelineItem: React.FC<TimelineItemProps> = ({ item }) => (
