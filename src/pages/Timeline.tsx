@@ -25,7 +25,6 @@ const Timeline = () => {
 
   const TimelineItem: React.FC<TimelineItemProps> = ({ item }) => (
     <div className="flex-shrink-0 flex flex-col items-center gap-3 w-40 sm:w-48 md:w-56 lg:w-64">
-      {/* Circle with Title */}
       <div className="relative group">
         <div className="
           w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36
@@ -54,7 +53,6 @@ const Timeline = () => {
         </div>
       </div>
 
-      {/* Date Badge */}
       <div className="w-full px-2">
         <div className="
           w-full
@@ -102,10 +100,8 @@ const Timeline = () => {
           ">
             Timeline
           </h2>
-          {/* <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div> */}
         </div>
 
-        {/* Timeline Container */}
         <div className="w-full overflow-hidden">
           <div className="
             relative
@@ -119,10 +115,6 @@ const Timeline = () => {
             [&::-webkit-scrollbar-thumb]:rounded-full
             [&::-webkit-scrollbar-thumb:hover]:bg-blue-400
           ">
-            {/* Scroll hint */}
-            <div className="absolute top-4 right-4 text-xs text-gray-400 hidden sm:block">
-              ← Scroll to see more →
-            </div>
             
             <div className="flex items-center gap-4 sm:gap-6 md:gap-8 pb-2">
               {timelineData.map((item, index) => (
@@ -137,7 +129,6 @@ const Timeline = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Hint */}
         <div className="text-center mt-4 sm:hidden">
           <p className="text-xs text-gray-400">Swipe left to see more events</p>
         </div>
