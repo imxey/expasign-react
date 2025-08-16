@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenuOpen: (isOpen: boolean) => void; }) {
     return (
-        <nav className="relative z-50 bg-gray-900 px-6 py-4 shadow-lg">
+        <nav className="sticky top-0 z-50 bg-gray-900 px-6 py-4 shadow-lg">
             <div className="mx-auto flex max-w-7xl items-center justify-between">
                 <Link to="/" >
                     <h1 className="text-xl font-bold text-white">Expasign x Edutime</h1>
@@ -18,9 +18,9 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: bool
                     <Link to="/about" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         About
                     </Link>
-                    <a href="#competition" className="text-gray-300 transition-colors duration-300 hover:text-white">
+                    <Link to="/competition" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         Competition
-                    </a>
+                    </Link>
                     <Link to="/edutime" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         Edutime
                     </Link>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, type FC, type ReactNode } from "react";
 import Footer from '../components/footer';
+import { Link } from "react-router-dom";
 interface ScrollFadeUpProps {
   children: ReactNode;
 }
@@ -96,41 +97,8 @@ export default function About() {
           <p className="mb-1 text-lg leading-relaxed text-gray-300">
             <span className="text-blue-400 font-semibold">Expasign</span> adalah
             <span className="text-purple-400"> kompetisi tingkat nasional</span> yang dirancang untuk
-            menguji kreativitas, inovasi, dan kemampuan analisis peserta. Terdiri dari tiga cabang utama:
+            menguji kreativitas, inovasi, dan kemampuan analisis peserta. Terdiri dari tiga cabang utama (<Link to="/competition" className="text-blue-400 hover:underline">kompetisi</Link>).
           </p>
-
-          <details className="border rounded-lg">
-            <summary className="cursor-pointer px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white">
-              <strong className="text-blue-400">KTI (Karya Tulis Ilmiah)</strong>
-            </summary>
-            <ul className="list-none list-inside mb-1 space-y-2 text-gray-300 px-4 py-2">
-              <li className="text-justify">
-                Lomba penulisan ilmiah yang mengajak peserta untuk menyajikan solusi kreatif dan berbasis riset terhadap masalah nyata.
-              </li>
-            </ul>
-          </details>
-
-          <details className="border rounded-lg">
-            <summary className="cursor-pointer px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white">
-              <strong className="text-blue-400">Business Plan</strong>
-            </summary>
-            <ul className="list-none list-inside mb-1 space-y-2 text-gray-300 px-4 py-2">
-              <li className="text-justify">
-                Wadah bagi wirausahawan muda untuk mempresentasikan ide bisnis inovatif beserta strategi implementasinya.
-              </li>
-            </ul>
-          </details>
-
-          <details className="border rounded-lg">
-            <summary className="cursor-pointer px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white">
-              <strong className="text-blue-400">Infografis</strong>
-            </summary>
-            <ul className="list-none list-inside mb-1 space-y-2 text-gray-300 px-4 py-2">
-              <li className="text-justify">
-                Tantangan desain untuk menyampaikan informasi kompleks secara visual yang menarik dan mudah dipahami.
-              </li>
-            </ul>
-          </details>
 
           <p className="mb-6 text-lg leading-relaxed text-gray-300">
             <span className="text-purple-400 font-semibold">Edutime</span> adalah puncak dari rangkaian acara —
