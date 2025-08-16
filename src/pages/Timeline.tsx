@@ -12,14 +12,15 @@ interface TimelineItemProps {
 
 const Timeline = () => {
   const timelineData: TimelineItemData[] = [
-    { title: "Open Registration", date: "31 Agustus 2025" },
-    { title: "Open Submission", date: "32 Agustus 2025" },
-    { title: "Close Registration", date: "33 Agustus 2025" },
-    { title: "Close Submission", date: "34 Agustus 2025" },
-    { title: "Pengumuman Finalis", date: "35 Agustus 2025" },
-    { title: "Puncak Acara Expasign", date: "36 Agustus 2025" },
-    { title: "Puncak Acara Edutime", date: "37 Agustus 2025" },
-    { title: "Closing", date: "38 Agustus 2025" },
+    { title: "Pendaftaran Gelombang 1", date: "18-28 Agustus 2025" },
+    { title: "Pendaftaran Gelombang 2", date: "29 Agustus - 5 September 2025" },
+    { title: "Technical Meeting", date: "6 September 2025" },
+    { title: "Pengumpulan Karya", date: "7-12 September 2025" },
+    { title: "Pengumuman Babak Final", date: "16 September 2025" },
+    { title: "Pengumpulan Power Point (LKTI & LBP)", date: "17-19 September 2025" },
+    { title: "Presentasi Finalis LKTI & LBP", date: "20 September 2025" },
+    { title: "Pengumuman Pemenang", date: "23 September 2025" },
+    { title: "Awarding", date: "23 September 2025" },
   ];
 
   const TimelineItem: React.FC<TimelineItemProps> = ({ item }) => (
