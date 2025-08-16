@@ -22,6 +22,7 @@ Meanwhile, admins have full control over data management, participant monitoring
   </tr>
   <tr>
     <td><img src="public/3.png" alt="Pendaftaran Expasign"/></td>
+    <td><img src="public/6.png" alt="Form Pendaftaran Expasign"/></td>
     <td><img src="public/4.png" alt="Pembayaran Otomatis Menggunakan Webhook Saweria"/></td>
   </tr>
 </table>
