@@ -1,140 +1,182 @@
 import React from 'react';
+import Footer from '../components/footer';
 
 interface TimelineItemData {
   title: string;
   date: string;
+  description?: string;
 }
 
 interface TimelineItemProps {
   item: TimelineItemData;
   index: number;
+  isLast: boolean;
 }
 
-const Timeline = () => {
+export default function Timeline() {
   const timelineData: TimelineItemData[] = [
-    { title: "Pendaftaran Gelombang 1", date: "18-28 Agustus 2025" },
-    { title: "Pendaftaran Gelombang 2", date: "29 Agustus - 5 September 2025" },
-    { title: "Technical Meeting", date: "6 September 2025" },
-    { title: "Pengumpulan Karya", date: "7-12 September 2025" },
-    { title: "Pengumuman Babak Final", date: "16 September 2025" },
-    { title: "Pengumpulan Power Point (LKTI & LBP)", date: "17-19 September 2025" },
-    { title: "Presentasi Finalis LKTI & LBP", date: "20 September 2025" },
-    { title: "Pengumuman Pemenang", date: "23 September 2025" },
-    { title: "Awarding Pemenang", date: "23 September 2025" },
+    { 
+      title: "Pendaftaran Gelombang 1", 
+      date: "18-28 Agustus 2025",
+      description: "Periode pendaftaran pertama untuk semua kategori lomba"
+    },
+    { 
+      title: "Pendaftaran Gelombang 2", 
+      date: "29 Agustus - 5 September 2025",
+      description: "Periode pendaftaran terakhir dengan kuota terbatas"
+    },
+    { 
+      title: "Technical Meeting", 
+      date: "6 September 2025",
+      description: "Penjelasan teknis dan tanya jawab seputar kompetisi"
+    },
+    { 
+      title: "Pengumpulan Karya", 
+      date: "7-12 September 2025",
+      description: "Deadline pengumpulan semua karya peserta"
+    },
+    { 
+      title: "Pengumuman Babak Final", 
+      date: "16 September 2025",
+      description: "Pengumuman peserta yang lolos ke babak final"
+    },
+    { 
+      title: "Pengumpulan Power Point (LKTI & LBP)", 
+      date: "17-19 September 2025",
+      description: "Pengumpulan presentasi untuk kategori LKTI dan LBP"
+    },
+    { 
+      title: "Presentasi Finalis LKTI & LBP", 
+      date: "20 September 2025",
+      description: "Sesi presentasi final untuk kategori LKTI dan LBP"
+    },
+    { 
+      title: "Pengumuman Pemenang", 
+      date: "23 September 2025",
+      description: "Pengumuman resmi pemenang semua kategori"
+    },
+    { 
+      title: "Awarding Pemenang", 
+      date: "23 September 2025",
+      description: "Acara penyerahan hadiah dan sertifikat"
+    },
   ];
 
-  const TimelineItem: React.FC<TimelineItemProps> = ({ item }) => (
-    <div className="flex-shrink-0 flex flex-col items-center gap-3 w-40 sm:w-48 md:w-56 lg:w-64">
-      <div className="relative group">
-        <div className="
-          w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36
-          bg-gray-800 
-          rounded-full 
-          border-2 sm:border-3 md:border-4 
-          border-blue-400 
-          flex items-center justify-center
-          transition-all duration-300
-          hover:border-blue-300 hover:bg-gray-700
-          group-hover:scale-105
-        ">
-          <div className="absolute inset-0 rounded-full bg-blue-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-          <h3 className="
-            text-xs sm:text-sm md:text-base
-            font-medium 
-            text-gray-200 
-            text-center 
-            px-2 sm:px-3 md:px-4
-            leading-tight
-            z-10 relative
-            line-clamp-3
-          ">
-            {item.title}
-          </h3>
-        </div>
-      </div>
-
-      <div className="w-full px-2">
-        <div className="
-          w-full
-          h-8 sm:h-9 md:h-10
-          relative 
-          p-0.5 
-          rounded-full 
-          bg-gradient-to-r from-blue-500 to-purple-500
-          hover:from-blue-400 hover:to-purple-400
-          transition-all duration-300
-        ">
-          <div className="
-            bg-gray-900 
-            rounded-full 
-            w-full h-full 
-            flex items-center justify-center 
-            px-2 sm:px-3
-          ">
-            <span className="
-              text-xs sm:text-sm 
-              font-semibold 
-              text-white 
-              text-center 
-              leading-tight
-              truncate
-            ">
-              {item.date}
-            </span>
+  const TimelineItem: React.FC<TimelineItemProps> = ({ item, index, isLast }) => {
+    const isEven = index % 2 === 0;
+    
+    return (
+      <div className="relative flex items-center w-full">
+        {/* Timeline Line */}
+        {!isLast && (
+          <div className="absolute left-6 md:left-1/2 top-16 md:top-20 w-0.5 h-16 md:h-20 bg-gradient-to-b from-blue-400 to-purple-500 transform md:-translate-x-0.5 z-0"></div>
+        )}
+        
+        {/* Mobile Layout */}
+        <div className="flex w-full md:hidden">
+          {/* Circle */}
+          <div className="flex-shrink-0 w-12 h-12 bg-gray-800 border-3 border-blue-400 rounded-full flex items-center justify-center relative z-10">
+            <div className="w-4 h-4 bg-blue-400 rounded-full animate-pulse"></div>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-
-  return (
-    <section className="w-full bg-gray-900 text-white py-12 sm:py-16 md:py-20">
-      <div className="container mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="
-            text-2xl sm:text-3xl md:text-4xl lg:text-5xl 
-            font-bold 
-            text-blue-400
-            mb-2
-          ">
-            Timeline
-          </h2>
-        </div>
-
-        <div className="w-full overflow-hidden">
-          <div className="
-            relative
-            bg-gray-800 
-            p-4 sm:p-6 md:p-8
-            overflow-x-auto
-            [&::-webkit-scrollbar]:h-2
-            [&::-webkit-scrollbar-track]:bg-gray-700
-            [&::-webkit-scrollbar-track]:rounded-full
-            [&::-webkit-scrollbar-thumb]:bg-blue-500
-            [&::-webkit-scrollbar-thumb]:rounded-full
-            [&::-webkit-scrollbar-thumb:hover]:bg-blue-400
-          ">
-            
-            <div className="flex items-center gap-4 sm:gap-6 md:gap-8 pb-2">
-              {timelineData.map((item, index) => (
-                <React.Fragment key={index}>
-                  <TimelineItem item={item} index={index} />
-                  {index < timelineData.length - 1 && (
-                    <div className="flex-shrink-0 w-4 sm:w-6 md:w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 opacity-60"></div>
-                  )}
-                </React.Fragment>
-              ))}
+          
+          {/* Content */}
+          <div className="ml-6 pb-8 flex-1">
+            <div className="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+              <div className="flex flex-col gap-2">
+                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">{item.date}</span>
+                <h3 className="text-base font-bold text-white leading-tight">{item.title}</h3>
+                {item.description && (
+                  <p className="text-sm text-gray-300 leading-relaxed">{item.description}</p>
+                )}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="text-center mt-4 sm:hidden">
-          <p className="text-xs text-gray-400">Swipe left to see more events</p>
+        {/* Desktop Layout */}
+        <div className="hidden md:flex w-full items-center">
+          {isEven ? (
+            <>
+              {/* Left Content */}
+              <div className="w-1/2 pr-8 text-right">
+                <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 transform hover:scale-105">
+                  <span className="text-sm font-semibold text-blue-400 uppercase tracking-wide block mb-2">{item.date}</span>
+                  <h3 className="text-xl font-bold text-white mb-3 leading-tight">{item.title}</h3>
+                  {item.description && (
+                    <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                  )}
+                </div>
+              </div>
+              
+              {/* Center Circle */}
+              <div className="flex-shrink-0 w-16 h-16 bg-gray-800 border-4 border-blue-400 rounded-full flex items-center justify-center relative z-10 shadow-lg shadow-blue-500/30">
+                <div className="w-6 h-6 bg-blue-400 rounded-full animate-pulse"></div>
+              </div>
+              
+              {/* Right Spacer */}
+              <div className="w-1/2 pl-8"></div>
+            </>
+          ) : (
+            <>
+              {/* Left Spacer */}
+              <div className="w-1/2 pr-8"></div>
+              
+              {/* Center Circle */}
+              <div className="flex-shrink-0 w-16 h-16 bg-gray-800 border-4 border-purple-400 rounded-full flex items-center justify-center relative z-10 shadow-lg shadow-purple-500/30">
+                <div className="w-6 h-6 bg-purple-400 rounded-full animate-pulse"></div>
+              </div>
+              
+              {/* Right Content */}
+              <div className="w-1/2 pl-8">
+                <div className="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-purple-400 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 transform hover:scale-105">
+                  <span className="text-sm font-semibold text-purple-400 uppercase tracking-wide block mb-2">{item.date}</span>
+                  <h3 className="text-xl font-bold text-white mb-3 leading-tight">{item.title}</h3>
+                  {item.description && (
+                    <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
-    </section>
-  );
-};
+    );
+  };
 
-export default Timeline;
+  return (
+    <div 
+      className="min-h-screen bg-gray-900 text-white"
+    >
+      {/* Hero Section */}
+      <div className="relative overflow-hidden ">
+        {/* <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%234F46E5" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div> */}
+        
+        <div className="relative container mx-auto px-4 py-4 md:py-6">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
+              Timeline
+            </h1>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Timeline Section */}
+      <div className="container mx-auto px-4 py-4 md:py-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-8 md:space-y-12">
+            {timelineData.map((item, index) => (
+              <TimelineItem 
+                key={index} 
+                item={item} 
+                index={index} 
+                isLast={index === timelineData.length - 1}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
+}

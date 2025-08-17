@@ -7,6 +7,7 @@ import Regist from "./pages/Regist";
 import Submission from "./pages/Submission";
 import Competition from "./pages/Competition";
 import { useState } from "react";
+import Timeline from "./pages/Timeline";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           <Route path="/register" element={<Regist />} />
           <Route path="/submission" element={<Submission />} />
           <Route path="/competition" element={<Competition />} />
+          <Route path="/timeline" element={<Timeline />} />
         </Routes>
       </main>
     </div>

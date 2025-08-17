@@ -1,6 +1,5 @@
 import Footer from '../components/footer';
 import { useState } from 'react';
-import Timeline from './Timeline';
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<number | null>(null);
@@ -81,7 +80,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <Timeline />
       </div>
 
       {activeModal !== null && (
