@@ -45,6 +45,9 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: bool
                 <a href="#competition" onClick={() => setIsMenuOpen(false)} className="block text-gray-300 transition-colors duration-300 hover:text-white">
                     Competitions
                 </a>
+                <Link to="/timeline" className="text-gray-300 transition-colors duration-300 hover:text-white">
+                        Timeline
+                    </Link>
                 <Link to="/edutime" onClick={() => setIsMenuOpen(false)} className="block text-gray-300 transition-colors duration-300 hover:text-white">
                     Edutime
                 </Link>
