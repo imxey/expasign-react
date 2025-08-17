@@ -18,7 +18,7 @@ export default function Home() {
         "Kreativitas Mahasiswa dalam Mengembangkan Wirausaha Berbasis Potensi Lokal dan Ekonomi Digital",
         "Inovasi Hijau dan Partisipasi Generasi Muda dalam Menanggulangi Krisis Iklim dan Degradasi Lingkungan"
       ],
-      guidebook: "#",
+      guidebook: "https://drive.google.com/drive/folders/1-t59VdVjin2BwKlv8OxNm8GlGSjf9fpD?usp=sharing",
       register: "/register?competition=lkti"
     },
     {
@@ -33,7 +33,7 @@ export default function Home() {
         "Optimalisasi Industri Kreatif Mahasiswa melalui Produk dan Jasa yang Bernilai Ekonomi dan Estetika Tinggi",
         "Green Business: Inovasi Mahasiswa dalam Menciptakan Usaha Berbasis Keberlanjutan dan Eco-Friendly"
       ],
-      guidebook: "#",
+      guidebook: "https://drive.google.com/drive/folders/1014nQaNq3lOkM7pPDIve3v9UiuUCjpkn?usp=drive_link",
       register: "/register?competition=business_plan"
     },
     {
@@ -48,7 +48,7 @@ export default function Home() {
         "Tren Bisnis Kreatif Mahasiswa: Dari Ide Unik Menjadi Solusi Ekonomi Masa Kini",
         "Krisis Iklim dan Aksi Nyata Mahasiswa untuk Bumi yang Lebih Hijau"
       ],
-      guidebook: "#",
+      guidebook: "https://drive.google.com/drive/folders/103Ete-x921asbzCovRoiBvYvg8cgHP_8?usp=drive_link",
       register: "/register?competition=Infografis"
     }
   ];
@@ -123,7 +123,7 @@ export default function Home() {
               </ul>
 
               <div className="flex gap-4 mb-4"> 
-                <Link to={compData[activeModal].guidebook} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guidebook</Link>
+                <a target='blank' href={compData[activeModal].guidebook} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Guidebook</a>
                 <Link to={compData[activeModal].register} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Register</Link>
               </div>
             </div>
