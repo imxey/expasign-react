@@ -78,29 +78,6 @@ export default function Regist() {
     isEdu: false,
     receipt: null,
   });
-  const paymentOptions = [
-    {
-      name: "Bank BCA",
-      details: [
-        { label: "No. Rekening", value: "6037053203" },
-        { label: "Atas Nama", value: "Yunita Nurain" },
-      ],
-    },
-    {
-      name: "Bank Mandiri",
-      details: [
-        { label: "No. Rekening", value: "1570011957702" },
-        { label: "Atas Nama", value: "Dwi Nur Afifah" },
-      ],
-    },
-    {
-      name: "Dana",
-      details: [
-        { label: "No. Rekening", value: "081298296420" },
-        { label: "Atas Nama", value: "Dwi Nur Afifah" },
-      ],
-    },
-  ];
   const [members, setMembers] = useState<Member[]>([
     {
       id: 1,
