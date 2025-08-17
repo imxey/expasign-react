@@ -18,9 +18,9 @@ export default function Navbar({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: bool
                     <Link to="/about" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         About
                     </Link>
-                    <Link to="/competition" className="text-gray-300 transition-colors duration-300 hover:text-white">
+                    <a href="#competition" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         Competition
-                    </Link>
+                    </a>
                     <Link to="/timeline" className="text-gray-300 transition-colors duration-300 hover:text-white">
                         Timeline
                     </Link>
