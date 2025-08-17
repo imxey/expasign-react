@@ -654,7 +654,7 @@ export default function Regist() {
                 </div>
               ))}
 
-              {members.length < 3 && (
+              {members.length < 3 && teamData.category !== "Infografis" &&(
                 <button
                   type="button"
                   onClick={addMember}
