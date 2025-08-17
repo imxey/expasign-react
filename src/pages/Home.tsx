@@ -8,7 +8,7 @@ export default function Home() {
   const compData = [
     {
       name: "KTI",
-      title: "KTI (Karya Tulis Ilmiah)",
+      title: "KTI (Karya Tulis Ilmiah) - 3 anggota",
       desc: "Lomba penulisan ilmiah untuk solusi kreatif berbasis riset.",
       detail: "Ubah ide brilianmu menjadi karya tulis ilmiah yang membahas isu pendidikan, ekonomi, teknologi, atau lingkungan dengan solusi yang nyata dan berdampak.",
       subtema: [
@@ -23,7 +23,7 @@ export default function Home() {
     },
     {
       name: "Business Plan",
-      title: "Business Plan",
+      title: "Business Plan - 3 anggota",
       desc: "Wadah bagi wirausahawan muda mempresentasikan ide bisnis inovatif.",
       detail: "Rancang konsep bisnis inovatif, kreatif, dan realistis yang mampu menjawab tantangan masa depan sekaligus memberi manfaat luas bagi masyarakat.",
       subtema: [
@@ -38,7 +38,7 @@ export default function Home() {
     },
     {
       name: "Infografis",
-      title: "Infografis",
+      title: "Infografis - individu",
       desc: "Tantangan desain menyampaikan informasi kompleks secara visual.",
       detail: "Sajikan informasi, data, dan ide besar dalam bentuk desain visual yang memikat, kreatif, dan mudah dipahami semua orang.",
       subtema: [

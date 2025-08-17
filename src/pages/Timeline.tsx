@@ -17,12 +17,12 @@ export default function Timeline() {
   const timelineData: TimelineItemData[] = [
     { 
       title: "Pendaftaran Gelombang 1", 
-      date: "18-28 Agustus 2025",
+      date: "18 - 28 Agustus 2025",
       description: "Periode pendaftaran pertama untuk semua kategori lomba"
     },
     { 
       title: "Pendaftaran Gelombang 2", 
-      date: "29 Agustus - 5 September 2025",
+      date: "29 Agustus  -  5 September 2025",
       description: "Periode pendaftaran terakhir dengan kuota terbatas"
     },
     { 
@@ -32,7 +32,7 @@ export default function Timeline() {
     },
     { 
       title: "Pengumpulan Karya", 
-      date: "7-12 September 2025",
+      date: "7 - 12 September 2025",
       description: "Deadline pengumpulan semua karya peserta"
     },
     { 
@@ -42,7 +42,7 @@ export default function Timeline() {
     },
     { 
       title: "Pengumpulan Power Point (LKTI & LBP)", 
-      date: "17-19 September 2025",
+      date: "17 - 19 September 2025",
       description: "Pengumpulan presentasi untuk kategori LKTI dan LBP"
     },
     { 
@@ -56,9 +56,9 @@ export default function Timeline() {
       description: "Pengumuman resmi pemenang semua kategori"
     },
     { 
-      title: "Awarding Pemenang", 
-      date: "23 September 2025",
-      description: "Acara penyerahan hadiah dan sertifikat"
+      title: "Awarding Pemenang dan Edutime", 
+      date: "27 September 2025",
+      description: "Acara penyerahan hadiah dan sertifikat pada puncak acara dengan seminar"
     },
   ];
 

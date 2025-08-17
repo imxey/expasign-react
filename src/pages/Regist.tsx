@@ -184,7 +184,14 @@ export default function Regist() {
     setIsLoading(true);
     setErrors({});
     setSuccessMessage("");
-
+    if(members.length < 3 ) {
+      if (teamData.category === "lkti" || teamData.category === "business_plan") {
+        setErrors({ general: "Tim harus terdiri dari 3 anggota." });
+        document.getElementById("title")?.scrollIntoView({ behavior: "smooth" });
+        setIsLoading(false);
+        return;
+      }
+    }
     const data = new FormData();
 
     data.append("team_name", teamData.team_name);
