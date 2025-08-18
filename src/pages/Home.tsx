@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<number | null>(null);
-
+  const guidebook = "https://drive.google.com/file/d/109ND2JUUauPBUiUBpkYpJXL-7iVIkU7O/view?usp=sharing"
   const compData = [
     {
       name: "KTI",
@@ -18,9 +18,9 @@ export default function Home() {
         "Solusi Teknologi Berbasis Mahasiswa untuk Menjawab Tantangan Sosial dan Lingkungan Sekitar",
         "Kreativitas Mahasiswa dalam Mengembangkan Wirausaha Berbasis Potensi Lokal dan Ekonomi Digital",
         "Inovasi Hijau dan Partisipasi Generasi Muda dalam Menanggulangi Krisis Iklim dan Degradasi Lingkungan",
-      ],
+      ],      
       guidebook:
-        "https://drive.google.com/drive/folders/1-t59VdVjin2BwKlv8OxNm8GlGSjf9fpD?usp=sharing",
+        "https://www.canva.com/design/DAGwI4narbo/WRpAFUBGAAhOkxqatgKjvw/view?utm_content=DAGwI4narbo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4caeed9e5e",
       register: "/register?competition=lkti",
     },
     {
@@ -37,7 +37,7 @@ export default function Home() {
         "Green Business: Inovasi Mahasiswa dalam Menciptakan Usaha Berbasis Keberlanjutan dan Eco-Friendly",
       ],
       guidebook:
-        "https://drive.google.com/drive/folders/1014nQaNq3lOkM7pPDIve3v9UiuUCjpkn?usp=drive_link",
+        "https://www.canva.com/design/DAGwI20uQew/l4zYxxfBy3dGB2bDE6z4Fw/view?utm_content=DAGwI20uQew&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2236e36972",
       register: "/register?competition=business_plan",
     },
     {
@@ -54,7 +54,7 @@ export default function Home() {
         "Krisis Iklim dan Aksi Nyata Mahasiswa untuk Bumi yang Lebih Hijau",
       ],
       guidebook:
-        "https://drive.google.com/drive/folders/103Ete-x921asbzCovRoiBvYvg8cgHP_8?usp=drive_link",
+        "https://www.canva.com/design/DAGwI9RXASE/46j6KG4yu9r0H_fwXwHd9w/view?utm_content=DAGwI9RXASE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h65c1218514",
       register: "/register?competition=Infografis",
     },
   ];
@@ -157,7 +157,7 @@ export default function Home() {
               <div className="flex gap-4 mb-4">
                 <a
                   target="blank"
-                  href={compData[activeModal].guidebook}
+                  href={guidebook}
                   className="bg-purple-500 text-xs md:text-sm text-white px-4 py-2 rounded hover:bg-blue-600"
                 >
                   Guidebook (umum)
