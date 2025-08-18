@@ -201,7 +201,7 @@ export default function About() {
                 />
                 <p
                   className={`font-azaret text-sm text-center sm:text-md xl:text-base
-                      transition-all duration-400 ease-in-out overflow-hidden
+                      transition-all duration-400 text-white md:text-black ease-in-out overflow-hidden
                       ${isActive ? "max-h-96 opacity-100 mt-2 pr-5" : "max-h-0 opacity-0 mt-0 pr-0"}
                   `}
                 >
@@ -215,4 +215,5 @@ export default function About() {
       </div>
     </>
   );
+
 }
