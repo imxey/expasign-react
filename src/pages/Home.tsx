@@ -107,7 +107,7 @@ export default function Home() {
             {compData.map((comp, index) => (
               <div
                 key={index}
-                className="relative w-full  rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700 p-6 rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl"
+                className="relative w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700 p-6 rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl"
               >
                 <h1 className="text-2xl font-bold text-blue-400">
                   {comp.title}
@@ -145,11 +145,11 @@ export default function Home() {
               <h2 className="text-2xl font-bold mb-4 text-blue-400">
                 {compData[activeModal].title}
               </h2>
-              <p className="text-gray-300 mb-4">
+              <p className="text-gray-300 text-sm mb-4">
                 {compData[activeModal].detail}
               </p>
 
-              <ul className="list-disc pl-5 space-y-2 text-gray-300 mb-4">
+              <ul className="list-disc text-xs pl-5 space-y-2 text-gray-300 mb-4">
                 {compData[activeModal].subtema.map((sub, i) => (
                   <li key={i}>{sub}</li>
                 ))}
