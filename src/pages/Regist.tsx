@@ -184,17 +184,26 @@ export default function Regist() {
     setIsLoading(true);
     setErrors({});
     setSuccessMessage("");
-    if(members.length < 3 ) {
-      if (teamData.category === "lkti" || teamData.category === "business_plan") {
+    if (members.length < 3) {
+      if (
+        teamData.category === "lkti" ||
+        teamData.category === "business_plan"
+      ) {
         setErrors({ general: "Tim harus terdiri dari 3 anggota." });
-        document.getElementById("title")?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById("title")
+          ?.scrollIntoView({ behavior: "smooth" });
         setIsLoading(false);
         return;
       }
     }
     const data = new FormData();
 
-    data.append("team_name", teamData.team_name);
+    if (teamData.category === "Infografis") {
+      data.append("team_name", members[0].name);
+    } else {
+      data.append("team_name", teamData.team_name);
+    }
     data.append("category", teamData.category);
     data.append("payment_method", teamData.payment_method);
     data.append("isEdu", teamData.isEdu ? "1" : "0");
@@ -294,35 +303,41 @@ export default function Regist() {
             />
           ) : (
             <form onSubmit={handleSubmit} noValidate>
-              <div className="mb-8 rounded-lg border border-blue-400/50 p-6">
-                <h3 className="mb-4 text-xl font-bold text-blue-300">
-                  Data Tim
-                </h3>
-                <div>
-                  <label
-                    htmlFor="team_name"
-                    className="mb-2 block text-sm font-bold text-gray-300">
-                    Nama Tim
-                  </label>
-                  <input
-                    type="text"
-                    name="team_name"
-                    id="team_name"
-                    value={teamData.team_name}
-                    onChange={handleTeamChange}
-                    required
-                    className="w-full rounded-md border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                  />
-                  {getError("team_name")}
+              {teamData.category !== "Infografis" && (
+                <div className="mb-8 rounded-lg border border-blue-400/50 p-6">
+                  <h3 className="mb-4 text-xl font-bold text-blue-300">
+                    Data Tim
+                  </h3>
+                  <div>
+                    <label
+                      htmlFor="team_name"
+                      className="mb-2 block text-sm font-bold text-gray-300">
+                      Nama Tim
+                    </label>
+                    <input
+                      type="text"
+                      name="team_name"
+                      id="team_name"
+                      value={
+                        teamData.category !== "Infografis"
+                          ? teamData.team_name
+                          : "-"
+                      }
+                      onChange={handleTeamChange}
+                      required
+                      className="w-full rounded-md border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                    />
+                    {getError("team_name")}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {members.map((member, index) => (
                 <div
                   key={member.id}
                   className="relative mb-6 rounded-lg border border-purple-400/50 p-6">
                   <h3 className="mb-4 text-xl font-bold text-purple-300">
-                    Anggota {index + 1} {index === 0 ? "(Ketua Tim)" : ""}
+                    {teamData.category === "Infografis" ? "Data Peserta" : `Anggota ${index + 1} ${index === 0 ? "(Ketua Tim)" : ""}`}
                   </h3>
                   {index > 0 && (
                     <button
@@ -654,7 +669,7 @@ export default function Regist() {
                 </div>
               ))}
 
-              {members.length < 3 && teamData.category !== "Infografis" &&(
+              {members.length < 3 && teamData.category !== "Infografis" && (
                 <button
                   type="button"
                   onClick={addMember}
