@@ -4,7 +4,8 @@ import { useState } from "react";
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<number | null>(null);
-  const guidebook = "https://drive.google.com/file/d/109ND2JUUauPBUiUBpkYpJXL-7iVIkU7O/view?usp=sharing"
+  const guidebook =
+  "https://www.canva.com/design/DAGwW1f2Qd8/UL1O4q8MirNSGZsFiR47QQ/view?utm_content=DAGwW1f2Qd8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hca5ced3587";  
   const compData = [
     {
       name: "KTI",
