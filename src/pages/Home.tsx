@@ -108,7 +108,7 @@ export default function Home() {
             {compData.map((comp, index) => (
               <div
                 key={index}
-                className="relative w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700 p-6 rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl"
+                className="relative w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700 p-6 transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl"
               >
                 <h1 className="text-2xl font-bold text-blue-400">
                   {comp.title}
