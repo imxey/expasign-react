@@ -32,32 +32,32 @@ export default function Timeline() {
     },
     { 
       title: "Pengumpulan Karya", 
-      date: "7 - 12 September 2025",
+      date: "7 - 19 September 2025",
       description: "Deadline pengumpulan semua karya peserta"
     },
     { 
       title: "Pengumuman Babak Final", 
-      date: "16 September 2025",
+      date: "22 September 2025",
       description: "Pengumuman peserta yang lolos ke babak final"
     },
     { 
       title: "Pengumpulan Power Point (LKTI & LBP)", 
-      date: "17 - 19 September 2025",
+      date: "23 September - 2 Oktober 2025",
       description: "Pengumpulan presentasi untuk kategori LKTI dan LBP"
     },
     { 
       title: "Presentasi Finalis LKTI & LBP", 
-      date: "20 September 2025",
+      date: "4 Oktober 2025",
       description: "Sesi presentasi final untuk kategori LKTI dan LBP"
     },
     { 
       title: "Pengumuman Pemenang", 
-      date: "23 September 2025",
+      date: "7 Oktober 2025",
       description: "Pengumuman resmi pemenang semua kategori"
     },
     { 
       title: "Awarding Pemenang dan Edutime", 
-      date: "27 September 2025",
+      date: "11 Oktober 2025",
       description: "Acara penyerahan hadiah dan sertifikat pada puncak acara dengan seminar"
     },
   ];
