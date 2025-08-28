@@ -4,7 +4,8 @@ import { useState } from "react";
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<number | null>(null);
-  const guidebook = "https://drive.google.com/file/d/109ND2JUUauPBUiUBpkYpJXL-7iVIkU7O/view?usp=sharing"
+  const guidebook =
+  "https://www.canva.com/design/DAGwW1f2Qd8/UL1O4q8MirNSGZsFiR47QQ/view?utm_content=DAGwW1f2Qd8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hca5ced3587";  
   const compData = [
     {
       name: "KTI",
@@ -107,7 +108,7 @@ export default function Home() {
             {compData.map((comp, index) => (
               <div
                 key={index}
-                className="relative w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700 p-6 rounded-xl shadow-lg transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl"
+                className="relative w-full rounded-xl overflow-hidden shadow-lg bg-gray-900 flex flex-col justify-between border border-gray-700 p-6 transition-transform duration-300 hover:-translate-y-5 hover:shadow-2xl"
               >
                 <h1 className="text-2xl font-bold text-blue-400">
                   {comp.title}

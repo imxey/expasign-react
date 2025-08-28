@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, type FC, type ReactNode } from "react";
-import Footer from '../components/footer';
+import Footer from "../components/footer";
 import { Link } from "react-router-dom";
 interface ScrollFadeUpProps {
   children: ReactNode;
@@ -13,11 +13,11 @@ const ScrollFadeUp: FC<ScrollFadeUpProps> = ({ children }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-            setVisible(true);
-            // Disconnect observer setelah visible, biar ga kerja terus
-            if(ref.current) {
-                observer.unobserve(ref.current);
-            }
+          setVisible(true);
+          // Disconnect observer setelah visible, biar ga kerja terus
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
         }
       },
       { threshold: 0.1 }
@@ -40,8 +40,7 @@ const ScrollFadeUp: FC<ScrollFadeUpProps> = ({ children }) => {
       ref={ref}
       className={`transform transition-all duration-700 ease-out ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
-    >
+      }`}>
       {children}
     </div>
   );
@@ -51,6 +50,8 @@ interface InfoCard {
   title: string;
   caption: string;
   photoUrl: string;
+  githubLink?: string;
+  linkedinLink?: string;
 }
 
 export default function About() {
@@ -61,16 +62,23 @@ export default function About() {
       title: "Author 1",
       caption: "Aqsa Zamzami",
       photoUrl: "/aqsa.jpg",
+      githubLink: "https://github.com/coldzamzam",
+      linkedinLink: "",
     },
     {
       title: "Author 2",
       caption: "Xeyla Vithra Arfhina",
       photoUrl: "/xeyla.png",
+      githubLink: "https://github.com/imxey",
+      linkedinLink:
+        "https://www.linkedin.com/in/xeyla-vithra-arfhina-5b9399280",
     },
     {
       title: "Author 3",
       caption: "Ahmad Mukhlash Muhtady",
       photoUrl: "/anakin.jpg",
+      githubLink: "https://github.com/pyzura",
+      linkedinLink: "",
     },
   ];
 
@@ -83,12 +91,11 @@ export default function About() {
       <div
         className="flex min-h-screen flex-col items-center justify-start !bg-gray-900 text-white pt-[30px]"
         style={{
-          fontFamily: 'Orbitron',
+          fontFamily: "Orbitron",
           fontWeight: 400,
           background:
-            'linear-gradient(90deg, rgba(30, 58, 138, 0.20) 0%, rgba(0, 0, 0, 0.50) 100%)',
-        }}
-      >
+            "linear-gradient(90deg, rgba(30, 58, 138, 0.20) 0%, rgba(0, 0, 0, 0.50) 100%)",
+        }}>
         <div className="relative z-10 w-11/12 max-w-7xl rounded-lg border border-gray-700 bg-gray-800 p-8 shadow-2xl md:p-12 text-justify">
           <h2 className="mb-8 text-center text-5xl font-bold text-blue-400 md:text-5xl">
             Tentang Expasign & Edutime
@@ -96,21 +103,34 @@ export default function About() {
 
           <p className="mb-1 text-lg leading-relaxed text-gray-300">
             <span className="text-blue-400 font-semibold">Expasign</span> adalah
-            <span className="text-purple-400"> kompetisi tingkat nasional</span> yang dirancang untuk
-            menguji kreativitas, inovasi, dan kemampuan analisis peserta. Terdiri dari tiga cabang utama (<Link to="/competition" className="text-blue-400 hover:underline">kompetisi</Link>).
+            <span className="text-purple-400">
+              {" "}
+              kompetisi tingkat nasional
+            </span>{" "}
+            yang dirancang untuk menguji kreativitas, inovasi, dan kemampuan
+            analisis peserta. Terdiri dari tiga cabang utama (
+            <Link to="/competition" className="text-blue-400 hover:underline">
+              kompetisi
+            </Link>
+            ).
           </p>
 
           <p className="mb-6 text-lg leading-relaxed text-gray-300">
-            <span className="text-purple-400 font-semibold">Edutime</span> adalah puncak dari rangkaian acara —
-            sebuah <span className="text-blue-400">seminar inspiratif</span> yang menghadirkan
-            <strong> pembicara ternama</strong> dari berbagai bidang. Acara ini menjadi ajang berbagi ilmu,
-            pengalaman, serta motivasi bagi para peserta dan audiens.
+            <span className="text-purple-400 font-semibold">Edutime</span>{" "}
+            adalah puncak dari rangkaian acara — sebuah{" "}
+            <span className="text-blue-400">seminar inspiratif</span> yang
+            menghadirkan
+            <strong> pembicara ternama</strong> dari berbagai bidang. Acara ini
+            menjadi ajang berbagi ilmu, pengalaman, serta motivasi bagi para
+            peserta dan audiens.
           </p>
 
           <p className="text-lg leading-relaxed text-gray-300">
-            Gabungan <span className="text-blue-400">Expasign</span> dan <span className="text-purple-400">Edutime </span>
-            menciptakan sinergi unik antara kompetisi dan edukasi — memberikan ruang bagi peserta untuk unjuk kemampuan,
-            sekaligus belajar, berjejaring, dan berkembang di tingkat nasional.
+            Gabungan <span className="text-blue-400">Expasign</span> dan{" "}
+            <span className="text-purple-400">Edutime </span>
+            menciptakan sinergi unik antara kompetisi dan edukasi — memberikan
+            ruang bagi peserta untuk unjuk kemampuan, sekaligus belajar,
+            berjejaring, dan berkembang di tingkat nasional.
           </p>
         </div>
 
@@ -125,7 +145,9 @@ export default function About() {
             <ScrollFadeUp>
               <div className="group relative overflow-hidden rounded-xl border border-gray-600 shadow-lg hover:shadow-pink-500/50 transition duration-300 hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-4">
-                  <p className="text-lg font-semibold text-white">Vice Project Officer</p>
+                  <p className="text-lg font-semibold text-white">
+                    Vice Project Officer
+                  </p>
                 </div>
                 <img
                   src="/VPO1.JPG"
@@ -133,7 +155,9 @@ export default function About() {
                   className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-4">
-                  <p className="text-lg font-semibold text-white">Vice Project Officer</p>
+                  <p className="text-lg font-semibold text-white">
+                    Vice Project Officer
+                  </p>
                 </div>
               </div>
             </ScrollFadeUp>
@@ -145,7 +169,9 @@ export default function About() {
                   className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-4">
-                  <p className="text-lg font-semibold text-white">Project Officer</p>
+                  <p className="text-lg font-semibold text-white">
+                    Project Officer
+                  </p>
                 </div>
               </div>
             </ScrollFadeUp>
@@ -157,7 +183,9 @@ export default function About() {
                   className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center p-4">
-                  <p className="text-lg font-semibold text-white">Vice Project Officer</p>
+                  <p className="text-lg font-semibold text-white">
+                    Vice Project Officer
+                  </p>
                 </div>
               </div>
             </ScrollFadeUp>
@@ -165,13 +193,13 @@ export default function About() {
         </div>
 
         <hr className="w-10/12 border-t-2 border-gray-600 my-8" />
-        
+
         <h2 className="mt-8 text-center text-4xl font-bold text-blue-400 md:text-5xl">
           Authors
         </h2>
 
-        <div className="flex flex-col xl:flex-row justify-center items-stretch gap-4 w-full max-w-7xl px-4 xl:px-32">
-          {infoCards.map(({ title, caption, photoUrl }, i) => {
+        <div className="flex flex-col xl:flex-row justify-center items-center lg:items-stretch gap-4 w-full max-w-7xl px-4 xl:px-32">
+          {infoCards.map(({ title, caption, photoUrl, githubLink, linkedinLink }, i) => {
             const isActive = activeIndex === i;
 
             return (
@@ -179,19 +207,18 @@ export default function About() {
                 key={i}
                 onClick={() => handleCardClick(i)}
                 className={`
-                  cursor-pointer rounded-lg flex flex-col justify-start
+                  cursor-pointer rounded-lg flex flex-col justify-center items-center
                   px-6 py-8 overflow-hidden
-                  text-black
+                  text-white
                   lg:text-white
                   transition-all duration-500 ease-in-out
-                  bg-${isActive ? 'gray-400' : 'transparent'}
-                  ${isActive ? 'flex-grow' : 'flex-grow-0'}
+                  bg-${isActive ? "gray-400" : "transparent"}
+                  ${isActive ? "flex-grow" : "flex-grow-0"}
                   `}
                 style={{
-                  width: isActive ? '350px' : '250px',
-                  transition: 'width 0.5s ease-in-out',
-                }}
-              >
+                  width: isActive ? "350px" : "250px",
+                  transition: "width 0.5s ease-in-out",
+                }}>
                 <img
                   src={photoUrl}
                   alt={title}
@@ -201,12 +228,47 @@ export default function About() {
                 />
                 <p
                   className={`font-azaret text-sm text-center sm:text-md xl:text-base
-                      transition-all duration-400 text-white md:text-black ease-in-out overflow-hidden
-                      ${isActive ? "max-h-96 opacity-100 mt-2 pr-5" : "max-h-0 opacity-0 mt-0 pr-0"}
-                  `}
-                >
+                      transition-all duration-400 text-white md:text-white ease-in-out overflow-hidden
+                      ${
+                        isActive
+                          ? "max-h-96 opacity-100 mt-2 pr-5"
+                          : "max-h-0 opacity-0 mt-0 pr-0"
+                      }
+                  `}>
                   {caption}
                 </p>
+                <div
+                  className={`font-azaret flex flex-row gap-3 text-sm text-center sm:text-md xl:text-base
+                    transition-all duration-400 text-white md:text-white ease-in-out overflow-hidden
+                    ${
+                      isActive
+                        ? "max-h-96 opacity-100 mt-2 pr-5"
+                        : "max-h-0 opacity-0 mt-0 pr-0"
+                    }
+                `}>
+                  <a
+                    href={githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mx-2 transition-transform duration-300 hover:scale-125">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                      alt="GitHub"
+                      className="w-10 h-10 invert hover:opacity-80"
+                    />
+                  </a>
+                  <a
+                    href={linkedinLink} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-transform duration-300 hover:scale-125">
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                      alt="LinkedIn"
+                      className="w-10 h-10 hover:opacity-80"
+                    />
+                  </a>
+                </div>
               </div>
             );
           })}
@@ -215,5 +277,4 @@ export default function About() {
       </div>
     </>
   );
-
 }

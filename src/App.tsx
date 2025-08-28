@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar"; 
+import Navbar from "./components/navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Edutime from "./pages/Edutime";
@@ -8,19 +8,20 @@ import Submission from "./pages/Submission";
 import Competition from "./pages/Competition";
 import { useState } from "react";
 import Timeline from "./pages/Timeline";
+import ScrollMain from "./components/scrollMain";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div
       style={{
-          fontFamily: 'Orbitron',
-          fontWeight: 400,
-          background:
-            'linear-gradient(90deg, rgba(30, 58, 138, 0.20) 0%, rgba(0, 0, 0, 0.50) 100%)',
-        }}
-    >
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+        fontFamily: "Orbitron",
+        fontWeight: 400,
+        background:
+          "linear-gradient(90deg, rgba(30, 58, 138, 0.20) 0%, rgba(0, 0, 0, 0.50) 100%)",
+      }}>
+      <ScrollMain />
+      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       <main>
         <Routes>
