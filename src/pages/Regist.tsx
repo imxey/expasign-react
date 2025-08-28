@@ -701,10 +701,10 @@ export default function Regist() {
                     <div className="flex justify-center items-center">
                       {(teamData.category === "lkti" ||
                         teamData.category === "business_plan") && (
-                        <img src="55000.jpg" alt="" />
+                        <img src="65000.jpg" alt="" />
                       )}
                       {teamData.category === "Infografis" && (
-                        <img src="20000.jpg" alt="" />
+                        <img src="25000.jpg" alt="" />
                       )}
                     </div>
                     <label
