@@ -18,7 +18,7 @@ export default function Edutime() {
         jurusan: '',
         email: '',
         phone: '',
-        address: '',
+        address: '-',
         school: '',
     });
 
@@ -139,9 +139,9 @@ export default function Edutime() {
                              <label htmlFor="phone" className="mb-2 block text-sm font-bold text-gray-300">Nomor Telepon</label>
                              <input type="tel" name="phone" id="phone" placeholder="Input Nomor Telepon" value={formData.phone} onChange={handleChange} required className="form-input w-full rounded-md border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"/>
                          </div>
-                         <div>
-                             <label htmlFor="address" className="mb-2 block text-sm font-bold text-gray-300">Alamat</label>
-                             <input type="text" name="address" id="address" placeholder="Input Alamat" value={formData.address} onChange={handleChange} required className="form-input w-full rounded-md border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"/>
+                         <div className='hidden'>
+                             <label htmlFor="address" className="mb-2 text-sm font-bold text-gray-300">Alamat</label>
+                             <input  type="text" name="address" id="address" placeholder="Input Alamat" value="-" onChange={handleChange} required className="form-input w-full rounded-md border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"/>
                          </div>
                          <div>
                              <label htmlFor="school" className="mb-2 block text-sm font-bold text-gray-300">Universitas</label>
