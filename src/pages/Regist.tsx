@@ -913,7 +913,7 @@ export default function Regist() {
                   className="h-5 w-5 rounded p-2"
                 />
                 <label htmlFor="isEdu" className="font-bold">
-                  Bersedia hadir pada edutime tanggal 27 September 2025?
+                  Bersedia hadir pada edutime tanggal 11 Oktober 2025?
                 </label>
               </div>
 
