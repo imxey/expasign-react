@@ -25,6 +25,7 @@ if (now < targetDate) {
   price.push("Rp 65.000");
   price.push("Rp 65.000");
   price.push("Rp 25.000");
+  price.push("Rp 80.000");
 }
 const CompetitionSelector: React.FC<CompetitionSelectorProps> = ({
   selectedCompe,
@@ -62,7 +63,7 @@ const CompetitionSelector: React.FC<CompetitionSelectorProps> = ({
       subtitle: "Bundling Lomba Karya Tulis Ilmiah dan Infografis",
       description:
         "Kompetisi penulisan karya tulis ilmiah dengan tambahan 1 peserta infografis. Dapatkan harga spesial untuk pendaftaran bundling ini.",
-      price: price[0],
+      price: price[3],
       icon: "📝",
     },
     {
@@ -71,7 +72,7 @@ const CompetitionSelector: React.FC<CompetitionSelectorProps> = ({
       subtitle: "Bundling Rencana Bisnis dan Infografis",
       description:
         "Kompetisi pembuatan rencana bisnis dengan tambahan 1 peserta infografis. Dapatkan harga spesial untuk pendaftaran bundling ini.",
-      price: price[1],
+      price: price[3],
       icon: "💼",
     },
   ];
