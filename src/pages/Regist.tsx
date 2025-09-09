@@ -16,6 +16,7 @@ interface Member {
 }
 
 interface TeamData {
+  isBundling: boolean;
   team_name: string;
   category: string;
   payment_method: string;
@@ -72,6 +73,7 @@ export default function Regist() {
   const [qris, setQris] = useState<boolean>();
 
   const [teamData, setTeamData] = useState<TeamData>({
+    isBundling: false,
     team_name: "",
     category: "",
     payment_method: "auto",
@@ -110,7 +112,25 @@ export default function Regist() {
 
   useEffect(() => {
     if (selectedCompe) {
-      setTeamData((prev) => ({ ...prev, category: selectedCompe }));
+      if (selectedCompe === "lktiInfog") {
+        setTeamData((prev) => ({
+          ...prev,
+          category: "lkti",
+          isBundling: true,
+        }));
+      } else if (selectedCompe === "business_planInfog") {
+        setTeamData((prev) => ({
+          ...prev,
+          category: "business_plan",
+          isBundling: true,
+        }));
+      } else {
+        setTeamData((prev) => ({
+          ...prev,
+          category: selectedCompe,
+          isBundling: false,
+        }));
+      }
     }
   }, [selectedCompe]);
 
@@ -155,7 +175,7 @@ export default function Regist() {
   };
 
   const addMember = () => {
-    if (members.length < 3) {
+    if (members.length < 4) {
       setMembers((prev) => [
         ...prev,
         {
@@ -184,17 +204,31 @@ export default function Regist() {
     setIsLoading(true);
     setErrors({});
     setSuccessMessage("");
-    if (members.length < 3) {
-      if (
-        teamData.category === "lkti" ||
-        teamData.category === "business_plan"
-      ) {
-        setErrors({ general: "Tim harus terdiri dari 3 anggota." });
+    if (
+      selectedCompe === "lktiInfog" ||
+      selectedCompe === "business_planInfog"
+    ) {
+      if (members.length < 4) {
+        setErrors({ general: "Tim harus terdiri dari 4 anggota." });
         document
           .getElementById("title")
           ?.scrollIntoView({ behavior: "smooth" });
         setIsLoading(false);
         return;
+      }
+    } else {
+      if (members.length < 3) {
+        if (
+          teamData.category === "lkti" ||
+          teamData.category === "business_plan"
+        ) {
+          setErrors({ general: "Tim harus terdiri dari 3 anggota." });
+          document
+            .getElementById("title")
+            ?.scrollIntoView({ behavior: "smooth" });
+          setIsLoading(false);
+          return;
+        }
       }
     }
     const data = new FormData();
@@ -210,6 +244,7 @@ export default function Regist() {
     if (teamData.payment_method === "transfer" && teamData.receipt) {
       data.append("receipt", teamData.receipt);
     }
+    data.append("isBundling", teamData.isBundling ? "1" : "0");
 
     members.forEach((member, index) => {
       Object.entries(member).forEach(([key, value]) => {
@@ -221,7 +256,8 @@ export default function Regist() {
 
     try {
       const response = await fetch(
-        "https://admin.expasign-edutime.site/api/team-regist/handle",
+        // "http://admin.expasign-edutime.site/api/team-regist/handle",
+        "http://127.0.0.1:8000/api/team-regist/handle",
         {
           method: "POST",
           headers: {
@@ -337,7 +373,11 @@ export default function Regist() {
                   key={member.id}
                   className="relative mb-6 rounded-lg border border-purple-400/50 p-6">
                   <h3 className="mb-4 text-xl font-bold text-purple-300">
-                    {teamData.category === "Infografis" ? "Data Peserta" : `Anggota ${index + 1} ${index === 0 ? "(Ketua Tim)" : ""}`}
+                    {teamData.category === "Infografis"
+                      ? "Data Peserta"
+                      : `Anggota ${index + 1} ${
+                          index === 0 ? "(Ketua Tim)" : ""
+                        }`}
                   </h3>
                   {index > 0 && (
                     <button
@@ -669,7 +709,19 @@ export default function Regist() {
                 </div>
               ))}
 
-              {members.length < 3 && teamData.category !== "Infografis" && (
+              {members.length < 3 &&
+                teamData.category !== "Infografis" &&
+                selectedCompe !== "lktiInfog" &&
+                selectedCompe !== "business_planInfog" && (
+                  <button
+                    type="button"
+                    onClick={addMember}
+                    className="mb-6 w-full rounded-lg border-2 border-dashed border-gray-600 py-3 text-sm text-gray-400 hover:border-gray-500 hover:text-gray-300">
+                    + Tambah Anggota
+                  </button>
+                )}
+              {((selectedCompe === "lktiInfog" && members.length < 4) ||
+                selectedCompe === "business_planInfog") && (
                 <button
                   type="button"
                   onClick={addMember}

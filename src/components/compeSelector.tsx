@@ -14,7 +14,7 @@ interface CompetitionSelectorProps {
   setSelectedCompe: (id: string) => void;
 }
 const now = new Date();
-const targetDate = new Date(now.getFullYear(), 7, 28, 23, 59, 59); 
+const targetDate = new Date(now.getFullYear(), 7, 28, 23, 59, 59);
 console.log("Current Date:", now);
 console.log("Target Date:", targetDate);
 if (now < targetDate) {
@@ -56,6 +56,24 @@ const CompetitionSelector: React.FC<CompetitionSelectorProps> = ({
       price: price[2],
       icon: "🎨",
     },
+    {
+      id: "lktiInfog",
+      title: "LKTI + Infografis",
+      subtitle: "Bundling Lomba Karya Tulis Ilmiah dan Infografis",
+      description:
+        "Kompetisi penulisan karya tulis ilmiah dengan tambahan 1 peserta infografis. Dapatkan harga spesial untuk pendaftaran bundling ini.",
+      price: price[0],
+      icon: "📝",
+    },
+    {
+      id: "business_planInfog",
+      title: "Business Plan + Infografis",
+      subtitle: "Bundling Rencana Bisnis dan Infografis",
+      description:
+        "Kompetisi pembuatan rencana bisnis dengan tambahan 1 peserta infografis. Dapatkan harga spesial untuk pendaftaran bundling ini.",
+      price: price[1],
+      icon: "💼",
+    },
   ];
 
   return (
@@ -63,7 +81,10 @@ const CompetitionSelector: React.FC<CompetitionSelectorProps> = ({
       <h3 className="mb-6 text-center text-xl font-bold text-blue-400">
         Pilih Kategori Lomba
       </h3>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div
+        className="flex flex-wrap justify-center gap-6 
+                [>&>*]:basis-full 
+                md:[&>*]:basis-1/4 md:[&>*]:max-w-1/4">
         {competitions.map((comp) => (
           <div
             key={comp.id}
@@ -72,8 +93,7 @@ const CompetitionSelector: React.FC<CompetitionSelectorProps> = ({
                 ? "border-blue-500 bg-blue-900/50 shadow-lg shadow-blue-500/25"
                 : "border-gray-600 bg-gray-700/50 hover:border-gray-500"
             }`}
-            onClick={() => setSelectedCompe(comp.id)}
-          >
+            onClick={() => setSelectedCompe(comp.id)}>
             <div className="mb-4 text-center text-4xl">{comp.icon}</div>
             <h4 className="mb-2 text-center text-lg font-bold text-white">
               {comp.title}
@@ -95,8 +115,7 @@ const CompetitionSelector: React.FC<CompetitionSelectorProps> = ({
                   <svg
                     className="h-4 w-4"
                     fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
+                    viewBox="0 0 20 20">
                     <path
                       fillRule="evenodd"
                       d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
