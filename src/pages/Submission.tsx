@@ -73,8 +73,8 @@ const Submission: FC = () => {
 
     try {
       const response = await fetch(
-        // "https://admin.expasign-edutime.site/api/submission/handle",
-        "http://127.0.0.1:8000/api/submission/handle",
+        "https://admin.expasign-edutime.site/api/submission/handle",
+        // "http://127.0.0.1:8000/api/submission/handle",
 
         {
           method: "POST",
@@ -113,7 +113,6 @@ const Submission: FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handler filenya aku jadiin satu aja biar pinter, dia ngenalin dari `name` inputnya
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, files } = e.target;
     if (files && files.length > 0) {
