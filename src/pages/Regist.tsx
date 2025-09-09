@@ -256,7 +256,7 @@ export default function Regist() {
 
     try {
       const response = await fetch(
-        "http://admin.expasign-edutime.site/api/team-regist/handle",
+        "https://admin.expasign-edutime.site/api/team-regist/handle",
         // "http://127.0.0.1:8000/api/team-regist/handle",
         {
           method: "POST",
