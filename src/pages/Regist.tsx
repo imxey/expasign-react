@@ -750,13 +750,28 @@ export default function Regist() {
                 </div>
                 {teamData.payment_method === "transfer" && qris === true && (
                   <div className="">
-                    <div className="flex justify-center items-center">
+                    {/* <div className="flex justify-center items-center">
                       {(teamData.category === "lkti" ||
                         teamData.category === "business_plan") && (
                         <img src="65000.jpg" alt="" />
                       )}
                       {teamData.category === "Infografis" && (
                         <img src="25000.jpg" alt="" />
+                      )}
+                    </div> */}
+                    <div className="flex justify-center items-center">
+                      {teamData.isBundling ? (
+                        <img src="80000.png" alt="" />
+                      ) : (
+                        <>
+                          {(teamData.category === "lkti" ||
+                            teamData.category === "business_plan") && (
+                            <img src="65000.jpg" alt="" />
+                          )}
+                          {teamData.category === "Infografis" && (
+                            <img src="25000.jpg" alt="" />
+                          )}
+                        </>
                       )}
                     </div>
                     <label
