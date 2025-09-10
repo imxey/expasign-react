@@ -376,7 +376,11 @@ export default function Regist() {
                     {teamData.category === "Infografis"
                       ? "Data Peserta"
                       : `Anggota ${index + 1} ${
-                          index === 0 ? "(Ketua Tim)" : ""
+                          index === 0
+                            ? "(Ketua Tim)"
+                            : index === 3
+                            ? "(Anggota untuk infografis)"
+                            : ""
                         }`}
                   </h3>
                   {index > 0 && (
