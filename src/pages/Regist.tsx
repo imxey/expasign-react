@@ -217,12 +217,12 @@ export default function Regist() {
         return;
       }
     } else {
-      if (members.length < 3) {
+      if (members.length < 2) {
         if (
           teamData.category === "lkti" ||
           teamData.category === "business_plan"
         ) {
-          setErrors({ general: "Tim harus terdiri dari 3 anggota." });
+          setErrors({ general: "Tim harus terdiri dari 2 anggota." });
           document
             .getElementById("title")
             ?.scrollIntoView({ behavior: "smooth" });
