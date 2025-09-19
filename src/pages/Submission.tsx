@@ -1,274 +1,153 @@
-import { useState } from "react";
-import type { FC, MouseEvent, ChangeEvent } from "react";
+// import { useState } from "react";
+import type { FC } from "react";
+import { motion } from "framer-motion";
 
-// Aku ubah disini yaa, biar state filenya kepisah
-interface FormDataState {
-  name: string;
-  email: string;
-  fileKTM: File | undefined;
-  fileKarya: File | undefined;
-  fileSumberData: File | undefined;
-}
 
-interface SuccessResponse {
-  status: "success";
-  message: string;
-}
+// interface FormDataState {
+//   name: string;
+//   email: string;
+//   fileKTM: File | undefined;
+//   fileKarya: File | undefined;
+//   fileSumberData: File | undefined;
+// }
 
-interface ErrorResponse {
-  message?: string | string[];
-  errors?: string[];
-}
+// interface SuccessResponse {
+//   status: "success";
+//   message: string;
+// }
+
+// interface ErrorResponse {
+//   message?: string | string[];
+//   errors?: string[];
+// }
 
 const Submission: FC = () => {
-  const [category, setCategory] = useState<string>("");
+  // const [category, setCategory] = useState<string>("");
 
-  // Inisialisasi statenya juga diubah
-  const [formData, setFormData] = useState<FormDataState>({
-    name: "",
-    email: "",
-    fileKTM: undefined,
-    fileKarya: undefined,
-    fileSumberData: undefined,
-  });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string[]>([]);
-  const [success, setSuccess] = useState<string>("");
+  // const [formData, setFormData] = useState<FormDataState>({
+  //   name: "",
+  //   email: "",
+  //   fileKTM: undefined,
+  //   fileKarya: undefined,
+  //   fileSumberData: undefined,
+  // });
+  // const [isLoading, setIsLoading] = useState<boolean>(false);
+  // const [error, setError] = useState<string[]>([]);
+  // const [success, setSuccess] = useState<string>("");
 
-  const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  // const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
 
-    // Validasi errornya aku benerin juga hehe
-    const newErrors: string[] = [];
-    if (!formData.name) newErrors.push("Nama tim harus diisi!");
-    if (!formData.email) newErrors.push("Email ketua tim tidak boleh kosong!");
-    if (!formData.fileKTM) newErrors.push("File KTM belum diupload!");
-    if (!formData.fileKarya) newErrors.push("File karya belum diupload!");
-    if (category === "infografis" && !formData.fileSumberData) {
-      newErrors.push("File sumber data untuk infografis belum diupload!");
-    }
+  //   const newErrors: string[] = [];
+  //   if (!formData.name) newErrors.push("Nama tim harus diisi!");
+  //   if (!formData.email) newErrors.push("Email ketua tim tidak boleh kosong!");
+  //   if (!formData.fileKTM) newErrors.push("File KTM belum diupload!");
+  //   if (!formData.fileKarya) newErrors.push("File karya belum diupload!");
+  //   if (category === "infografis" && !formData.fileSumberData) {
+  //     newErrors.push("File sumber data untuk infografis belum diupload!");
+  //   }
 
-    if (newErrors.length > 0) {
-      setError(newErrors);
-      return;
-    }
-    setIsLoading(true);
-    setError([]);
-    setSuccess("");
+  //   if (newErrors.length > 0) {
+  //     setError(newErrors);
+  //     return;
+  //   }
+  //   setIsLoading(true);
+  //   setError([]);
+  //   setSuccess("");
 
-    // Disini kuncinya, datanya dikirim pake key yang beda-beda
-    const formDataSend = new FormData();
-    formDataSend.append("category", category);
-    formDataSend.append("name", formData.name);
-    formDataSend.append("email", formData.email);
-    if (formData.fileKTM) {
-      formDataSend.append("ktm", formData.fileKTM);
-    }
-    if (formData.fileKarya) {
-      formDataSend.append("file", formData.fileKarya);
-    }
-    if (formData.fileSumberData) {
-      formDataSend.append("sumber_data", formData.fileSumberData);
-    }
+  //   const formDataSend = new FormData();
+  //   formDataSend.append("category", category);
+  //   formDataSend.append("name", formData.name);
+  //   formDataSend.append("email", formData.email);
+  //   if (formData.fileKTM) {
+  //     formDataSend.append("ktm", formData.fileKTM);
+  //   }
+  //   if (formData.fileKarya) {
+  //     formDataSend.append("file", formData.fileKarya);
+  //   }
+  //   if (formData.fileSumberData) {
+  //     formDataSend.append("sumber_data", formData.fileSumberData);
+  //   }
 
-    try {
-      const response = await fetch(
-        "https://admin.expasign-edutime.site/api/submission/handle",
-        // "http://127.0.0.1:8000/api/submission/handle",
+  //   try {
+  //     const response = await fetch(
+  //       "https://admin.expasign-edutime.site/api/submission/handle",
 
-        {
-          method: "POST",
-          headers: {
-            "X-Requested-With": "XMLHttpRequest",
-          },
-          body: formDataSend,
-        }
-      );
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "X-Requested-With": "XMLHttpRequest",
+  //         },
+  //         body: formDataSend,
+  //       }
+  //     );
 
-      if (!response.ok) {
-        const errorData: ErrorResponse = await response.json();
-        console.error("Error response:", errorData);
-        setError(errorData.errors || ["Terjadi kesalahan saat mengirim data."]);
-      } else {
-        const data: SuccessResponse | ErrorResponse = await response.json();
-        console.log("Response Data:", data);
+  //     if (!response.ok) {
+  //       const errorData: ErrorResponse = await response.json();
+  //       console.error("Error response:", errorData);
+  //       setError(errorData.errors || ["Terjadi kesalahan saat mengirim data."]);
+  //     } else {
+  //       const data: SuccessResponse | ErrorResponse = await response.json();
+  //       console.log("Response Data:", data);
 
-        if ("status" in data && data.status === "success") {
-          setSuccess(data.message);
-        } else {
-          const errorMessage =
-            data.message || "Terjadi kesalahan saat memproses pendaftaran.";
-          setError(Array.isArray(errorMessage) ? errorMessage : [errorMessage]);
-        }
-      }
-    } catch (err) {
-      console.error("Network error:", err);
-      setError(["Terjadi kesalahan jaringan. Silakan coba lagi."]);
-    }
-    setIsLoading(false);
-  };
+  //       if ("status" in data && data.status === "success") {
+  //         setSuccess(data.message);
+  //       } else {
+  //         const errorMessage =
+  //           data.message || "Terjadi kesalahan saat memproses pendaftaran.";
+  //         setError(Array.isArray(errorMessage) ? errorMessage : [errorMessage]);
+  //       }
+  //     }
+  //   } catch (err) {
+  //     console.error("Network error:", err);
+  //     setError(["Terjadi kesalahan jaringan. Silakan coba lagi."]);
+  //   }
+  //   setIsLoading(false);
+  // };
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  // const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, files } = e.target;
-    if (files && files.length > 0) {
-      setFormData((prev) => ({ ...prev, [name]: files[0] }));
-    }
-  };
+  // const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const { name, files } = e.target;
+  //   if (files && files.length > 0) {
+  //     setFormData((prev) => ({ ...prev, [name]: files[0] }));
+  //   }
+  // };
 
   return (
-    <>
-      <div
-        className="flex min-h-screen items-center justify-center bg-gray-900 py-12 text-white"
-        style={{ fontFamily: "Orbitron", fontWeight: 400 }}>
-        <div className="relative z-10 w-11/12 max-w-2xl rounded-lg border border-gray-700 bg-gray-800 p-8 shadow-2xl md:p-12">
-          <h2 className="mb-8 text-center text-3xl font-bold text-blue-400 md:text-4xl">
-            Submission Expasign x Edutime 2025
-          </h2>
-          {success && (
-            <div className="mb-6 rounded-lg bg-green-500 px-4 py-3 text-center text-white">
-              <p>{success}</p>
-            </div>
-          )}
-          {error.length > 0 && (
-            <div className="mb-6 rounded-lg bg-red-500 px-4 py-3 text-white">
-              <ul className="list-disc pl-5">
-                {error.map((err, index) => (
-                  <li key={index}>{err}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <div className="mt-6" id="paymentDetails">
-            <label className="mb-2 block text-sm font-bold text-gray-300">
-              Cabang Lomba
-            </label>
-            <select
-              name="category"
-              id="category"
-              required
-              onChange={(event) => setCategory(event.target.value)}
-              value={category}
-              className="form-input w-full rounded-md border border-gray-600 bg-gray-700 p-2 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-600 focus:border-blue-500 focus:ring-blue-500">
-              <option value="">Pilih Mata Lomba</option>
-              <option value="lkti">LKTI</option>
-              <option value="business_plan">Business Plan</option>
-              <option value="Infografis">Infografis</option>
-            </select>
-          </div>
-          {category && (
-            <>
-              <div className="grid grid-cols-1 mt-5 gap-6 md:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-sm font-bold text-gray-300">
-                    Nama tim
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Input Nama Tim"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="form-input w-full rounded-md border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="mb-2 block text-sm font-bold text-gray-300">
-                    Email ketua tim
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Input Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="form-input w-full rounded-md border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white focus:border-blue-500 focus:ring-blue-500"
-                  />
-                </div>
-              </div>
-              <div className="mt-6" id="paymentDetailsKTM">
-                <label
-                  htmlFor="fileKTM"
-                  className="mb-2 block text-sm font-bold text-gray-300">
-                  Upload KTM Semua Peserta (jadikan 1 pdf)
-                </label>
-                <input
-                  type="file"
-                  name="fileKTM" 
-                  id="fileKTM" 
-                  onChange={handleFileChange}
-                  accept=".pdf" 
-                  required
-                  className="form-input w-full rounded-md border border-gray-600 bg-gray-700 p-2 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-600 focus:border-blue-500 focus:ring-blue-500"
-                />
-                <p className="mt-1 text-xs text-gray-400">
-                  Ukuran maksimal file: 100MB. Format: PDF.
-                </p>
-              </div>
-              <div className="mt-6" id="paymentDetailsKarya">
-                <label
-                  htmlFor="fileKarya"
-                  className="mb-2 block text-sm font-bold text-gray-300">
-                  Upload File Karya
-                </label>
-                <input
-                  type="file"
-                  name="fileKarya" 
-                  id="fileKarya" 
-                  onChange={handleFileChange}
-                  accept=".jpg,.jpeg,.png,.pdf"
-                  required
-                  className="form-input w-full rounded-md border border-gray-600 bg-gray-700 p-2 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-600 focus:border-blue-500 focus:ring-blue-500"
-                />
-                <p className="mt-1 text-xs text-gray-400">
-                  Ukuran maksimal file: 100MB. Format: JPG, PNG, PDF.
-                </p>
-              </div>
-              {category === "Infografis" && (
-                <div className="mt-6" id="paymentDetailsSumberData">
-                  <label
-                    htmlFor="fileSumberData"
-                    className="mb-2 block text-sm font-bold text-gray-300">
-                    Upload File Sumber Data
-                  </label>
-                  <input
-                    type="file"
-                    name="fileSumberData" 
-                    id="fileSumberData" 
-                    onChange={handleFileChange}
-                    accept=".jpg,.jpeg,.png,.pdf"
-                    required
-                    className="form-input w-full rounded-md border border-gray-600 bg-gray-700 p-2 text-sm text-white file:mr-4 file:rounded-full file:border-0 file:bg-blue-500 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-blue-600 focus:border-blue-500 focus:ring-blue-500"
-                  />
-                  <p className="mt-1 text-xs text-gray-400">
-                    Ukuran maksimal file: 100MB. Format: JPG, PNG, PDF.
-                  </p>
-                </div>
-              )}
-              <button
-                type="button"
-                onClick={handleSubmit}
-                disabled={isLoading}
-                className="mt-8 w-full transform rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 text-lg font-bold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
-                {isLoading ? "Submitting..." : "Submit"}
-              </button>
-            </>
-          )}
-        </div>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-b from-[#0a0a1a] to-[#141432] text-center">
+      <div className="space-y-4">
+        <motion.h1
+          className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}>
+          Submission Telah Ditutup
+        </motion.h1>
+        <motion.h2
+          className="text-xl md:text-2xl text-gray-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}>
+          Terima Kasih Atas Partisipasi Kalian ☺️☺️
+        </motion.h2>
+        <motion.p
+          className="text-lg md:text-xl font-medium text-blue-400"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{
+            delay: 1,
+            duration: 0.8,
+            type: "spring",
+            stiffness: 120,
+          }}>
+          Sampai Jumpa di Expasign 2026 🚀
+        </motion.p>
       </div>
-    </>
+    </div>
   );
 };
 
